@@ -15,6 +15,7 @@ This project is a simple Ethereum DAppallows users to deposit and withdraw funds
 - [Node.js](https://nodejs.org/) and npm installed.
 - [MetaMask](https://metamask.io/) extension installed in your browser.
 ## Smart Contract
+```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
@@ -103,6 +104,8 @@ contract MyProject {
         return balance;
     }
 }
+
+```
 
 
 ## Starter Next/Hardhat Project
