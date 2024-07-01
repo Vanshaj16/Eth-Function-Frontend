@@ -52,24 +52,16 @@ export default function HomePage() {
  
     setATM(atmContract);
   }
-
   const getBalance = async() => {
     if (atm) {
       setBalance((await atm.getBalance()).toNumber());
     }
   }
 
+ 
   const deposit = async() => {
     if (atm) {
       let tx = await atm.deposit(5);
-      await tx.wait()
-      getBalance();
-    }
-  }
-
-  const withdraw = async() => {
-    if (atm) {
-      let tx = await atm.withdraw(2);
       await tx.wait()
       getBalance();
     }
@@ -88,7 +80,7 @@ export default function HomePage() {
       getBalance();
     }
   }
-
+  
   const initUser = () => {
     // Check to see if user has Metamask
     if (!ethWallet) {
@@ -108,9 +100,8 @@ export default function HomePage() {
       <div>
         <p>Your Account: {account}</p>
         <p>Your Balance: {balance}</p>
-        <button onClick={deposit}>Deposit 5 ETH</button>
-        <button onClick={withdraw}>Withdraw 2 ETH</button>
         <button onClick={addInterest}>Add Interest at 20% Interest Rate</button>
+        <button onClick={deposit}>Deposit 5 ETH</button>
         <button onClick={deductServiceCharge}>Service Charge 1 ETH</button>
       </div>
     )
